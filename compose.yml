@@ -1,0 +1,21 @@
+﻿services:
+  bot:
+    image: ghcr.io/floatingmilkshake/kyaru
+    restart: on-failure
+    volumes:
+      - type: bind
+        source: /etc/localtime
+        target: /etc/localtime
+        read_only: true
+      - type: bind
+        source: ./config.json
+        target: /app/config.json
+    labels: [ "com.centurylinklabs.watchtower.scope=kyaru" ]
+  watchtower:
+    image: nickfedor/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ~/.docker/config.json:/config.json
+    command: --interval 30 --label-enable --scope kyaru
+    restart: always
+    labels: [ "com.centurylinklabs.watchtower.scope=kyaru" ]

@@ -1,0 +1,17 @@
+﻿global using DSharpPlus;
+global using DSharpPlus.Commands;
+global using DSharpPlus.Commands.Processors.SlashCommands;
+global using DSharpPlus.Commands.Processors.SlashCommands.ArgumentModifiers;
+global using DSharpPlus.Commands.Processors.SlashCommands.Metadata;
+global using DSharpPlus.Commands.Trees.Metadata;
+global using DSharpPlus.Entities;
+global using DSharpPlus.EventArgs;
+global using DSharpPlus.Interactivity;
+global using DSharpPlus.Interactivity.Enums;
+global using DSharpPlus.Interactivity.EventHandling;
+global using DSharpPlus.Interactivity.Extensions;
+global using Kyaru.Extensions;
+global using Microsoft.Extensions.Logging;
+global using Newtonsoft.Json;
+global using System.ComponentModel;
+global using System.Reflection;
