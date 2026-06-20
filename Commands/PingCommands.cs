@@ -9,9 +9,11 @@ internal class PingCommands
     {
         await ctx.RespondAsync(new DiscordInteractionResponseBuilder().WithContent("Ping."));
 
+        var now = DateTime.UtcNow;
+
         var websocketPing = ctx.Client.GetConnectionLatency(0).TotalMilliseconds;
         var msg = await ctx.Interaction.GetOriginalResponseAsync();
-        var interactionLatency = Math.Round((DateTime.UtcNow - msg.CreationTimestamp.UtcDateTime).TotalMilliseconds);
+        var interactionLatency = Math.Round((now - msg.CreationTimestamp.UtcDateTime).TotalMilliseconds);
 
         await ctx.EditResponseAsync(new DiscordWebhookBuilder()
             .WithContent($"Pong. Websocket latency `{websocketPing}ms`, interaction latency `{interactionLatency}ms`."));
